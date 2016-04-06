@@ -25,6 +25,10 @@
                     <li>@Html.ActionLink("Cats", "Cats", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                 </ul>
+                <div class="pull-left mini-cart">
+                    Total: @MvcApplication.CartObject.TotalAmount :-
+                    @Html.ActionLink("Gå till kassan", "Cart", "Home")
+                </div>
                 @Html.Partial("_LoginPartial")
                 <form class="search">
                     <input name="q" placeholder="Sök på sidan">

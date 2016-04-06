@@ -1,0 +1,48 @@
+﻿@model Projektarbete_MVC.Cart.Models.CartObject
+
+@{
+    ViewBag.Title = "Cart";
+}
+
+<table class="table">
+    <tr>
+        <th>
+            Name
+        </th>
+        <th>
+            Quantity
+        </th>
+        <th>
+            Price
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.CartItems)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Quantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @using (Html.BeginForm("DeleteFromCart", "Home", new { id = item.Id }, FormMethod.Post))
+                {
+                    <input type="submit" value="Ta bort" />
+                }
+            </td>
+        </tr>
+    }
+
+</table>
+
+<b>Total: @Model.TotalAmount :-</b><br/>
+<b>Antal: @Model.TotalQuantity</b>
+
+<h2>Cart</h2>
+
