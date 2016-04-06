@@ -1,9 +1,5 @@
-﻿@using System.Linq
-@model System.Collections.Generic.IEnumerable<Projektarbete_MVC.Models.Product>
-
-@{
+﻿@{
     ViewBag.Title = "Cats";
-    Model.Count();
 }
 <h2>@ViewBag.Title</h2>
 <h3>@ViewBag.Message</h3>
@@ -11,7 +7,7 @@
 
 
 <div class="row">
-    @*<div class="col-md-4 col-sm-6">
+    <div class="col-md-4 col-sm-6">
         <h2>Maine Coon</h2>
         <img src="~/Content/Images/mainecoon.jpg" />
         <p>
@@ -109,29 +105,9 @@
 
     <div class="col-md-4 col-sm-6">
         <h2>Russian Blue</h2>
-        <img src="~/Content/Images/russianblue.jpg"/>
+        <img src="~/Content/Images/russianblue.jpg" />
         <p>Pris: 6000:-</p>
         <p>Antal i lager: </p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Lägg i varukorg &raquo;</a>
-        </p>
-    </div>*@
-
-    @foreach (var cat in Model.OrderBy(x => x.Id))
-    {
-        <div class="col-md-4 col-sm-6">
-            <input type="hidden" value="@cat.Id" id="Id"/>
-            <h2>@cat.Name</h2>
-            <img src="~/Content/Images/@cat.ImageName"/>
-            <p>Pris: @cat.Price:-</p>
-            <p>Antal i lager: @cat.QuantityInStore</p>
-            <p>
-                @using (Html.BeginForm("AddToCart", "Home", new { id = cat.Id }, FormMethod.Post))
-                {
-                    <input type="hidden" value="@cat.Id" id="Id"/>
-                    <input type="submit" value="Lägg in i varukorg"/>
-                }
-            </p>
-        </div>
-    }
-
+        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Lägg i varukorg &raquo;</a></p>
+    </div>
 </div>
